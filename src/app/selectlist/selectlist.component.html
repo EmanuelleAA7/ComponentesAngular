@@ -1,0 +1,28 @@
+<input type="text" [formControl]="myControl">
+<button (click)="aplicar()">Aplicar</button>
+<mat-selection-list #lista (selectionChange)="onSelection($event, lista.selectedOptions.selected)"> 
+    <mat-list-option  *ngFor="let shoe of typesOfShoes">
+      {{shoe}}
+    </mat-list-option>
+  </mat-selection-list>
+  
+  <p>
+    Options selected: {{lista.selectedOptions.selected.length}}
+  </p>
+
+  <button (click)="passar($event, lista.selectedOptions.selected)">Adicionar na outra lista</button> <br>
+  <!-- <p>Selected:</p>
+<ul>
+  <li *ngFor="let i lista.selectedOptions.selected">
+    {{ i.value }}
+  </li>
+</ul> -->
+{{checkedValues|json}} <br>
+
+<mat-selection-list #lista2 (selectionChange)="onSelection($event, lista.selectedOptions.selected)"> 
+    <mat-list-option *ngFor="let x of teste" >
+      {{x}}
+    </mat-list-option>
+  </mat-selection-list>
+
+  {{current_selected|json}}
